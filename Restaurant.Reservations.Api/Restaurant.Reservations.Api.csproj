@@ -8,10 +8,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Restaurant.Reservations.Application\Restaurant.Reservations.Application.csproj" />
+    <ProjectReference Include="..\Restaurant.Reservations.Application\Restaurant.Reservations.Application.csproj" />
     <ProjectReference Include="..\Restaurant.Reservations.Core\Restaurant.Reservations.Core.csproj" />
     <ProjectReference Include="..\Restaurant.Reservations.Infrastructure\Restaurant.Reservations.Infrastructure.csproj" />
   </ItemGroup>

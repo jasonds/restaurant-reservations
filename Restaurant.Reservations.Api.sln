@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Reservations.Api", "Restaurant.Reservations.Api\Restaurant.Reservations.Api.csproj", "{0BDC6BA4-8FE0-4A19-A128-30309092D91D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Reservations.Api", "Restaurant.Reservations.Api\Restaurant.Reservations.Api.csproj", "{0BDC6BA4-8FE0-4A19-A128-30309092D91D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Reservations.Application", "..\Restaurant.Reservations.Application\Restaurant.Reservations.Application.csproj", "{604BC00C-7E9C-40E6-A18F-9B481386B7E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Reservations.Core", "Restaurant.Reservations.Core\Restaurant.Reservations.Core.csproj", "{AB6FE386-FCF5-48B0-8C32-DFEE666C0C92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Reservations.Core", "Restaurant.Reservations.Core\Restaurant.Reservations.Core.csproj", "{AB6FE386-FCF5-48B0-8C32-DFEE666C0C92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Reservations.Infrastructure", "Restaurant.Reservations.Infrastructure\Restaurant.Reservations.Infrastructure.csproj", "{A1FD7C9D-B0EF-4778-B6D4-8E8FE0EA9405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Reservations.Infrastructure", "Restaurant.Reservations.Infrastructure\Restaurant.Reservations.Infrastructure.csproj", "{A1FD7C9D-B0EF-4778-B6D4-8E8FE0EA9405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Reservations.Application", "Restaurant.Reservations.Application\Restaurant.Reservations.Application.csproj", "{3B25F842-BE61-42CF-9D24-343F8FB3E86E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{0BDC6BA4-8FE0-4A19-A128-30309092D91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BDC6BA4-8FE0-4A19-A128-30309092D91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BDC6BA4-8FE0-4A19-A128-30309092D91D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{604BC00C-7E9C-40E6-A18F-9B481386B7E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{604BC00C-7E9C-40E6-A18F-9B481386B7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{604BC00C-7E9C-40E6-A18F-9B481386B7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{604BC00C-7E9C-40E6-A18F-9B481386B7E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB6FE386-FCF5-48B0-8C32-DFEE666C0C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB6FE386-FCF5-48B0-8C32-DFEE666C0C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB6FE386-FCF5-48B0-8C32-DFEE666C0C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{A1FD7C9D-B0EF-4778-B6D4-8E8FE0EA9405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1FD7C9D-B0EF-4778-B6D4-8E8FE0EA9405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1FD7C9D-B0EF-4778-B6D4-8E8FE0EA9405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B25F842-BE61-42CF-9D24-343F8FB3E86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B25F842-BE61-42CF-9D24-343F8FB3E86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B25F842-BE61-42CF-9D24-343F8FB3E86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B25F842-BE61-42CF-9D24-343F8FB3E86E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
