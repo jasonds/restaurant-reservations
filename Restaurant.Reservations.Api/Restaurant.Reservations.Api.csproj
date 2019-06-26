@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Restaurant.Reservations.Application\Restaurant.Reservations.Application.csproj" />
+    <ProjectReference Include="..\Restaurant.Reservations.Core\Restaurant.Reservations.Core.csproj" />
+    <ProjectReference Include="..\Restaurant.Reservations.Infrastructure\Restaurant.Reservations.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
