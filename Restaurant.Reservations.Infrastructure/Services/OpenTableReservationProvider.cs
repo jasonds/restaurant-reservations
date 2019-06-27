@@ -23,6 +23,18 @@ namespace Restaurant.Reservations.Infrastructure.Services
             return await this._context.Reservations.Where(x => x.AccountId == accountId).ToListAsync();
         }
 
+        public async Task<ICollection<Reservation>> GetWithinRange(Guid accountId, DateTime reservationDate)
+        {
+            var dateStart = reservationDate.AddHours(-4);
+            var dateEnd = reservationDate.AddHours(4);
+
+            return await this._context.Reservations
+                .Where(x => x.AccountId == accountId)
+                .Where(x => x.ReservationTimeUtc >= dateStart)
+                .Where(x => x.ReservationTimeUtc <= dateEnd)
+                .ToListAsync();
+        }
+
         public async Task<Reservation> GetByIdAsync(Guid accountId, Guid reservationId)
         {
             return await this._context.Reservations
@@ -31,14 +43,16 @@ namespace Restaurant.Reservations.Infrastructure.Services
                 .SingleOrDefaultAsync();
         }
 
-        public async Task CreateAsync(Reservation reservation)
+        public async Task<Reservation> CreateAsync(Reservation reservation)
         {
             this._context.Reservations.Add(reservation);
 
             await this._context.SaveChangesAsync();
+
+            return reservation;
         }
 
-        public async Task UpdateAsync(Reservation reservation)
+        public async Task<Reservation> UpdateAsync(Reservation reservation)
         {
             var existingReservation = await this._context.Reservations
                 .Where(x => x.AccountId == reservation.AccountId)
@@ -50,9 +64,17 @@ namespace Restaurant.Reservations.Infrastructure.Services
                 throw new NullReferenceException();
             }
 
-            this._context.Reservations.Add(reservation);
+            existingReservation.AccountId = reservation.AccountId;
+            existingReservation.FirstName = reservation.FirstName;
+            existingReservation.LastName = reservation.LastName;
+            existingReservation.Notes = reservation.Notes;
+            existingReservation.ReservationTimeUtc = reservation.ReservationTimeUtc;
+            existingReservation.RestaurantName = reservation.RestaurantName;
+            existingReservation.TotalPatrons = reservation.TotalPatrons;
 
             await this._context.SaveChangesAsync();
+
+            return existingReservation;
         }
 
         public async Task DeleteAsync(Guid accountId, Guid reservationId)

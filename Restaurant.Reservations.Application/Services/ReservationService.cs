@@ -20,11 +20,19 @@ namespace Restaurant.Reservations.Application.Services
             return await this._reservationProvider.GetAllAsync(accountId);
         }
 
-        public async Task CreateAsync(InputModels.Reservation reservation)
+        public async Task<Reservation> CreateAsync(InputModels.Reservation reservation)
         {
+            // Confirm we have a reservation
             if (reservation == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
+            }
+
+            // Confirm this is not within 4 hours of another reservation
+            var conflictingReservations = await this._reservationProvider.GetWithinRange(reservation.AccountId, reservation.ReservationTimeUtc);
+            if (conflictingReservations.Count > 0)
+            {
+                throw new Exception("Existing reservation conflicts with this reservation.");
             }
 
             var newReservation = new Reservation(Guid.NewGuid())
@@ -39,6 +47,8 @@ namespace Restaurant.Reservations.Application.Services
             };
 
             await this._reservationProvider.CreateAsync(newReservation);
+
+            return newReservation;
         }
     }
 }

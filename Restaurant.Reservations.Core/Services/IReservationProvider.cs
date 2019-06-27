@@ -9,11 +9,13 @@ namespace Restaurant.Reservations.Core.Services
     {
         Task<ICollection<Reservation>> GetAllAsync(Guid accountId);
 
+        Task<ICollection<Reservation>> GetWithinRange(Guid accountId, DateTime reservationDate);
+
         Task<Reservation> GetByIdAsync(Guid accountId, Guid reservationId);
 
-        Task CreateAsync(Reservation reservation);
+        Task<Reservation> CreateAsync(Reservation reservation);
 
-        Task UpdateAsync(Reservation reservation);
+        Task<Reservation> UpdateAsync(Reservation reservation);
 
         Task DeleteAsync(Guid accountId, Guid reservationId);
     }

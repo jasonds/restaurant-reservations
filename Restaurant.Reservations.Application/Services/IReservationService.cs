@@ -9,6 +9,6 @@ namespace Restaurant.Reservations.Application.Services
     {
         Task<ICollection<Reservation>> GetAllAsync(Guid accountId);
 
-        Task CreateAsync(InputModels.Reservation reservation);
+        Task<Reservation> CreateAsync(InputModels.Reservation reservation);
     }
 }
