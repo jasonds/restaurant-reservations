@@ -8,7 +8,7 @@ using InputModels = Restaurant.Reservations.Application.InputModels;
 
 namespace Restaurant.Reservations.Api.Controllers
 {
-    public class ReservationController : ControllerBase
+    public class ReservationController : BaseController
     {
         private readonly IReservationService _reservationService;
 

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurant.Reservations.Application.Services;
@@ -78,16 +77,13 @@ namespace Restaurant.Reservations.Api
         private void DependencyInjection(IServiceCollection services)
         {
             // Register DbContext
-            services.AddDbContext<ReservationDbContext>(x => x
-                .UseInMemoryDatabase(Guid.NewGuid().ToString())
-                .EnableSensitiveDataLogging(true)
-                .ConfigureWarnings(cw => cw.Ignore(InMemoryEventId.TransactionIgnoredWarning))
-            );
-
-            // contexts
+            services.AddDbContext<ReservationDbContext>(x => x.UseSqlServer(
+                Configuration.GetConnectionString(Core.Constants.Settings.ReservationDbContextConnection)));
+            
+            // Contexts
             services.AddHttpContextAccessor();
 
-            // services
+            // Services
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<IReservationProvider, OpenTableReservationProvider>();
         }
